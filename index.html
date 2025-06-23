@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityUpgrade - Build Your Ancient Empire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap');
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background-image: url('https://images.unsplash.com/photo-1547989453-11ecf56e61f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #e2d5b6;
+        }
+        
+        .stone-bg {
+            background-image: url('https://images.unsplash.com/photo-1519752441410-d3ca9ecb2346?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-blend-mode: overlay;
+            background-color: rgba(0,0,0,0.6);
+        }
+        
+        .scroll-bg {
+            background-image: url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+        }
+        
+        .torch {
+            animation: flicker 3s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            20%, 60% { opacity: 0.8; }
+            40%, 80% { opacity: 0.6; }
+        }
+        
+        .banner {
+            animation: sway 8s infinite alternate ease-in-out;
+            transform-origin: top center;
+        }
+        
+        @keyframes sway {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+        
+        .bird {
+            position: absolute;
+            animation: fly 15s linear infinite;
+        }
+        
+        @keyframes fly {
+            0% { left: -50px; top: 20%; }
+            100% { left: 100%; top: 30%; }
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #d4af37; }
+            to { box-shadow: 0 0 20px #d4af37, 0 0 30px #d4af37; }
+        }
+        
+        .marble-border {
+            border-image: url('https://images.unsplash.com/photo-1587351025558-5d5bcfcb1d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 30 round;
+            border-width: 8px;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body class="stone-bg">
+    <!-- Birds animation -->
+    <div class="bird">
+        <i class="fas fa-dove text-white opacity-50 text-xl"></i>
+    </div>
+    
+    <!-- Torch elements -->
+    <div class="absolute left-10 top-20 torch hidden md:block">
+        <i class="fas fa-fire text-yellow-500 text-4xl"></i>
+    </div>
+    <div class="absolute right-10 top-20 torch hidden md:block">
+        <i class="fas fa-fire text-yellow-500 text-4xl"></i>
+    </div>
+    
+    <!-- Main container -->
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Banner with animation -->
+        <div class="banner bg-red-900 bg-opacity-80 text-center py-4 mb-12 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-600 to-transparent opacity-20"></div>
+            <h2 class="text-xl md:text-2xl font-bold text-yellow-300 relative z-10">
+                <i class="fas fa-crown mr-2"></i> LIMITED TIME: Double Resources for New Players! <i class="fas fa-crown ml-2"></i>
+            </h2>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="flex flex-col items-center justify-center mb-20 relative">
+            <div class="w-full max-w-2xl scroll-bg bg-opacity-90 rounded-lg p-8 md:p-12 text-center marble-border">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-yellow-300" style="font-family: 'MedievalSharp', cursive; text-shadow: 2px 2px 4px #000;">
+                    CITY<span class="text-white">UPGRADE</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 italic text-yellow-200">"Build Your Empire from Scratch. Rule the Ancient World."</p>
+                
+                <button class="glow bg-yellow-700 hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-105 flex items-center mx-auto">
+                    <i class="fas fa-download mr-3"></i> Download Now
+                </button>
+                
+                <div class="mt-6 flex justify-center space-x-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/256px-Download_on_the_App_Store_Badge.svg.png" class="h-12" alt="App Store">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/256px-Google_Play_Store_badge_EN.svg.png" class="h-12" alt="Play Store">
+                </div>
+            </div>
+            
+            <div class="absolute -bottom-10 left-0 right-0 flex justify-center">
+                <i class="fas fa-chevron-down text-white text-3xl animate-bounce"></i>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="mb-20 bg-stone-800 bg-opacity-80 rounded-lg p-8 md:p-12 marble-border">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-yellow-300 flex items-center justify-center">
+                <i class="fas fa-scroll mr-4"></i> About The Game
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg mb-6">
+                        <span class="text-yellow-300 font-bold">CityUpgrade</span> is an epic city-building game where you start with a humble village and grow into a mighty empire. 
+                        Inspired by classics like <span class="italic">Clash of Clans</span> and <span class="italic">Age of Empires</span>, but with unique ancient world mechanics.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-yellow-700 rounded-full p-2 mr-4">
+                                <i class="fas fa-landmark text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-yellow-300">Build and Upgrade</h3>
+                                <p>Construct monumental buildings from simple huts to grand temples and palaces.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-700 rounded-full p-2 mr-4">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-yellow-300">Train Armies</h3>
+                                <p>Recruit and train diverse military units to defend your city or conquer others.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-700 rounded-full p-2 mr-4">
+                                <i class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-yellow-300">Step-by-Step Tutorials</h3>
+                                <p>Comprehensive guides help new players master the game mechanics.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-700 rounded-full p-2 mr-4">
+                                <i class="fas fa-gamepad text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-yellow-300">Mini-Games</h3>
+                                <p>Play fun side games to earn coins and speed up your progress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ancient City" class="rounded-lg w-full h-auto shadow-lg">
+                    <div class="absolute -bottom-4 -right-4 bg-yellow-700 text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-star mr-2"></i> New Update!
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tutorials Section -->
+        <section class="mb-20 bg-stone-800 bg-opacity-80 rounded-lg p-8 md:p-12 marble-border">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-yellow-300 flex items-center justify-center">
+                <i class="fas fa-graduation-cap mr-4"></i> Learn to Build Like a Legend
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                    <i class="fas fa-home text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Found Your Village</h3>
+                    <p>Start with basic huts and gather resources to establish your first settlement.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                    <i class="fas fa-hammer text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Upgrade Buildings</h3>
+                    <p>Improve your structures to increase production and unlock new capabilities.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                    <i class="fas fa-shield-alt text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Defend Your City</h3>
+                    <p>Build walls and train soldiers to protect your growing empire from invaders.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+                    <i class="fas fa-users text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Expand Population</h3>
+                    <p>Attract more citizens to work in your city and serve in your armies.</p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">5</div>
+                    <i class="fas fa-gem text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Gather Resources</h3>
+                    <p>Collect food, wood, stone, and gold to fuel your city's growth.</p>
+                </div>
+                
+                <!-- Step 6 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="bg-yellow-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">6</div>
+                    <i class="fas fa-trophy text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-yellow-300">Become Legendary</h3>
+                    <p>Complete quests and achievements to earn your place in history.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mini-Games Section -->
+        <section class="mb-20 bg-stone-800 bg-opacity-80 rounded-lg p-8 md:p-12 marble-border">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-yellow-300 flex items-center justify-center">
+                <i class="fas fa-puzzle-piece mr-4"></i> Earn Rewards with Mini-Games
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="relative">
+                    <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <!-- Placeholder for game preview - would be replaced with actual game in production -->
+                            <div class="bg-stone-700 h-64 md:h-80 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-gamepad text-6xl text-yellow-300 mb-4"></i>
+                                    <p class="text-xl">Mini-Game Preview</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-yellow-700 text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-coins mr-2"></i> Earn 2x Today!
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-300">Fun Ways to Boost Your Progress</h3>
+                    <p class="mb-6">Take a break from city building and play these engaging mini-games to earn extra resources and speed up your upgrades.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-stone-700 bg-opacity-70 p-4 rounded-lg text-center">
+                            <i class="fas fa-chess text-3xl text-yellow-300 mb-2"></i>
+                            <h4 class="font-bold">Strategy Puzzle</h4>
+                        </div>
+                        <div class="bg-stone-700 bg-opacity-70 p-4 rounded-lg text-center">
+                            <i class="fas fa-dice text-3xl text-yellow-300 mb-2"></i>
+                            <h4 class="font-bold">Dice Challenge</h4>
+                        </div>
+                        <div class="bg-stone-700 bg-opacity-70 p-4 rounded-lg text-center">
+                            <i class="fas fa-memory text-3xl text-yellow-300 mb-2"></i>
+                            <h4 class="font-bold">Memory Match</h4>
+                        </div>
+                        <div class="bg-stone-700 bg-opacity-70 p-4 rounded-lg text-center">
+                            <i class="fas fa-running text-3xl text-yellow-300 mb-2"></i>
+                            <h4 class="font-bold">Obstacle Run</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="mb-20 bg-stone-800 bg-opacity-80 rounded-lg p-8 md:p-12 marble-border">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-yellow-300 flex items-center justify-center">
+                <i class="fas fa-quote-left mr-4"></i> What Players Say
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg relative">
+                    <div class="absolute -top-4 -left-4 bg-yellow-700 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="italic mb-4">"The most immersive ancient city builder I've played. The attention to historical detail is amazing!"</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-300 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold">- Marcus</span>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg relative">
+                    <div class="absolute -top-4 -left-4 bg-yellow-700 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="italic mb-4">"I love how the mini-games give me extra resources when I'm waiting for upgrades to complete."</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-300 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="font-bold">- Cleopatra</span>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-stone-700 bg-opacity-70 p-6 rounded-lg relative">
+                    <div class="absolute -top-4 -left-4 bg-yellow-700 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="italic mb-4">"The community is great and the developers actually listen to player feedback. 10/10!"</p>
+                    <div class="flex items-center">
+                        <div class="text-yellow-300 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold">- Alexander</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        <section class="bg-red-900 bg-opacity-80 rounded-lg p-8 md:p-12 text-center marble-border">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-yellow-300">Ready to Build Your Empire?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join millions of players worldwide in the ultimate ancient city-building experience!</p>
+            
+            <button class="glow bg-yellow-700 hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-105 flex items-center mx-auto">
+                <i class="fas fa-download mr-3"></i> Download Now
+            </button>
+            
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-white hover:text-yellow-300 text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-yellow-300 text-xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-yellow-300 text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-yellow-300 text-xl"><i class="fab fa-discord"></i></a>
+            </div>
+            
+            <div class="mt-8 text-sm text-stone-300">
+                <p>Need help? <a href="#" class="text-yellow-300 hover:underline">Contact Support</a> or message us on <a href="#" class="text-yellow-300 hover:underline">WhatsApp +1 (555) 123-4567</a></p>
+                <p class="mt-2">© 2023 CityUpgrade. All rights reserved.</p>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Simple script to add more birds dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add more birds
+            for (let i = 0; i < 3; i++) {
+                const bird = document.createElement('div');
+                bird.className = 'bird';
+                bird.innerHTML = '<i class="fas fa-dove text-white opacity-50 text-xl"></i>';
+                bird.style.left = -(Math.random() * 100 + 50) + 'px';
+                bird.style.top = (Math.random() * 30 + 10) + '%';
+                bird.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                document.body.appendChild(bird);
+            }
+            
+            // Add click handler for download buttons
+            document.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    alert('Redirecting to download page...');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
